@@ -1,0 +1,4 @@
+FOR /F "usebackq tokens=*" %%F IN (`az account get-access-token --resource=https://database.windows.net/ --query accessToken`) DO (
+SET var=%%F
+)
+echo ##vso[task.setvariable variable=sqlToken;]%var%
